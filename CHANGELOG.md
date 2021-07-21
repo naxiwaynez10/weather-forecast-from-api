@@ -1,6 +1,7 @@
 # Changes
 
 * 1.1.next in progress
+  * Fix #71 by generating a `lib` template from the `clj-new/lib` function!
   * Update `tools.deps.alpha` (and remove workaround for #69).
 
 * 1.1.321 -- 2021-07-16

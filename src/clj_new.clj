@@ -17,7 +17,7 @@
 (defn lib
   "Create new lib project."
   [options]
-  (h/create-x (assoc options :template "app")))
+  (h/create-x (assoc options :template "lib")))
 
 (defn template
   "Create new template project."
