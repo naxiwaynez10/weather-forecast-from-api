@@ -75,7 +75,7 @@ Now you can use those as follows:
     clojure -X:new-lib :name myname/mylib
 ```
 
-> If you are using the latest prerelease of the Clojure CLI, 1.10.3.905 onward, you can install `clj-new` as a "tool" instead of updating your `deps.edn` file and then invoke it using the following commands:
+> If you are using at least version 1.10.3.933 of the Clojure CLI, you can install `clj-new` as a "tool" instead of updating your `deps.edn` file and then invoke it using the following commands:
 
 ```bash
 clojure -Ttools install com.github.seancorfield/clj-new '{:git/tag "v1.1.324"}' :as new
@@ -89,10 +89,10 @@ clojure -Tnew template :name myname/mytemplate
 clojure -Tnew create :template electron-app :name myname/myelectron-app
 ```
 
-> As of Clojure CLI 1.10.3.912, you can get help about the functions available in `clj-new`:
+> As of Clojure CLI 1.10.3.933, you can get help about the functions available in `clj-new`:
 
 ```bash
-clojure -A:deps -Tnew help/doc :ns clj-new
+clojure -A:deps -Tnew help/doc
 ```
 
 The following `:exec-args` can be provided for `clj-new/create`:
