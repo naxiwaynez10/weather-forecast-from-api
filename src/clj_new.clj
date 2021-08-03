@@ -19,6 +19,11 @@
   [options]
   (h/create-x (assoc options :template "lib")))
 
+(defn polylith
+  "Create new lib project."
+  [options]
+  (h/create-x (assoc options :template "polylith")))
+
 (defn template
   "Create new template project."
   [options]

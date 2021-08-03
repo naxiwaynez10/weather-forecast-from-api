@@ -1,7 +1,8 @@
 # Changes
 
 * 1.1.next in progress
-  * Update `depstar`, `poly` (Polyloth tool), and `test-runner`.
+  * `polylith` template now uses master branch.
+  * Update `depstar`, `poly` (Polylith tool), and `test-runner`.
 
 * 1.1.324 -- 2021-07-20
   * Fix #71 by generating a `lib` template from the `clj-new/lib` function!

@@ -3,7 +3,7 @@
 The Polylith documentation can be found here:
 
 - The [high-level documentation](https://polylith.gitbook.io/polylith)
-- The [Polylith Tool documentation](https://github.com/polyfy/polylith/tree/issue-66) _(issue-66 branch)_
+- The [Polylith Tool documentation](https://github.com/polyfy/polylith)
 - The [RealWorld example app documentation](https://github.com/furkan3ayraktar/clojure-polylith-realworld-example-app)
 
 You can also get in touch with the Polylith Team on [Slack](https://clojurians.slack.com/archives/C013B7MQHJQ).
@@ -23,8 +23,6 @@ FIXME: explanation
 Get info about the workspace:
 
     $ clojure -M:poly info
-
-> Note: because this project is tracking the [issue-66 branch of Polylith](https://github.com/polyfy/polylith/tree/issue-66), you cannot use the native `poly` command because it is still expecting the older project format.
 
 In addition to the `development` project which you will use with a REPL
 for developing against the whole workspace, there are two projects:

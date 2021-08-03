@@ -284,7 +284,6 @@
   (println "* app - create a new application based on deps.edn")
   (println "* lib - create a new library based on deps.edn")
   (println "* polylith - create a new Polylith workspace (based on deps.edn)")
-  (println "  (this currently tracking https://github.com/polyfy/polylith/tree/issue-66)")
   (println "* template - create a new clj template based on deps.edn")
   (println "\nThe project-name must be a valid Clojure symbol and must either be a")
   (println "qualified name or a multi-segment name (to avoid .core namespaces!).")
