@@ -1,6 +1,6 @@
 # Changes
 
-* 1.1.next in progress
+* 1.1.331 -- 2021-08-02
   * `polylith` template now uses master branch.
   * Update `depstar`, `poly` (Polylith tool), and `test-runner`.
 
