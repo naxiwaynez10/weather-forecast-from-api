@@ -4,11 +4,12 @@ syntax: glob
 .cpcache/**
 .gitignore
 .git/**
+.lsp/.cache
+.lsp/sqlite.db
 
 syntax: regexp
 ^.calva/output-window/
 ^.lein-.*
-^.lsp/sqlite.*\.db
 ^.nrepl-history
 ^.nrepl-port
 ^.rebel_readline_history
