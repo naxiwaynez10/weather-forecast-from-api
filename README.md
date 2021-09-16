@@ -191,7 +191,7 @@ Built-in templates are:
 
 #### Third-party templates
 
-Third-part templates can be used like this:
+Third-party templates can be used like this:
 
 ```
 clojure -X:new :template clj-py-r-template :name myname/mylib
