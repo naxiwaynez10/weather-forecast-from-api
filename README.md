@@ -189,6 +189,19 @@ Built-in templates are:
 * `polylith` -- A minimal [Polylith](https://polylith.gitbook.io/) workspace with a minimal application project and a minimal library project (new in 1.1.293).
 * `template` -- A minimal `clj-new` template.
 
+#### Third-party templates
+
+Third-party templates can be used like this:
+
+```
+clojure -X:new :template clj-py-r-template :name myname/mylib
+```
+This requires that the naming conventions for templates are followed, and either one of these templates exists in the remote repository, typical artifactory (or any repository other specified)
+
+* clj-py-r-template/lein-template
+* clj-py-r-template/boot-template
+* clj-py-r-template/clj-template
+
 > Note: you can currently find third-party templates on Clojars using these searches [`<template-name>/clj-template`](https://clojars.org/search?q=artifact-id:clj-template%2A), [`<template-name>/lein-template`](https://clojars.org/search?q=artifact-id:lein-template%2A) or [`<template-name>/boot-template`](https://clojars.org/search?q=artifact-id:boot-template%2A).
 
 As noted above, the project name should be a qualified Clojure symbol, where the first part is typically your GitHub account name or your organization's domain reversed, e.g., `com.acme`, and the second part is the "local" name for your project (and is used as the name of the folder in which the project is created), e.g., `com.acme/my-cool-project`. This will create a folder called `my-cool-project` and the main namespace for the new project will be `com.acme.my-cool-project`, so the file will be `src/com/acme/my_cool_project.clj`. In the generated `pom.xml` file, the group ID will be `com.acme` and the artifact ID will be `my-cool-project` -- following this pattern means you are already set up for publishing to Clojars (or some other Maven-like repository).
