@@ -193,14 +193,22 @@ Built-in templates are:
 
 Third-party templates can be used like this:
 
-```
+```bash
 clojure -X:new :template clj-py-r-template :name myname/mylib
 ```
-This requires that the naming conventions for templates are followed, and either one of these templates exists in the remote repository, typical artifactory (or any repository other specified)
+This requires that the naming conventions for templates are followed, and one of the following templates exists in the remote repository (Maven, Clojars, etc):
 
-* clj-py-r-template/lein-template
-* clj-py-r-template/boot-template
-* clj-py-r-template/clj-template
+* `clj-py-r-template/clj-template`
+* `clj-py-r-template/lein-template`
+* `clj-py-r-template/boot-template`
+
+If your template name is a qualified symbol, such as `us.technomancy/liquid-cool`, the following templates are searched for:
+
+* `us.technomancy/clj-template.liquid-cool`
+* `us.technomancy/lein-template.liquid-cool`
+* `us.technomancy/boot-template.liquid-cool`
+
+Leiningen's documentation has a [detailed explanation of how template names map to group and artifact IDs](https://github.com/technomancy/leiningen/blob/master/doc/TEMPLATES.md). [Boot does not yet support qualified template names](https://github.com/boot-clj/boot-new/issues/47).
 
 > Note: you can currently find third-party templates on Clojars using these searches [`<template-name>/clj-template`](https://clojars.org/search?q=artifact-id:clj-template%2A), [`<template-name>/lein-template`](https://clojars.org/search?q=artifact-id:lein-template%2A) or [`<template-name>/boot-template`](https://clojars.org/search?q=artifact-id:boot-template%2A).
 
