@@ -167,13 +167,16 @@
               {})))))
       (do
         (println output)
-        (println "Failed with:" (.getMessage @failure))
+        (println "Failed with (underlying error, possibly from Maven):")
+        (println "   " (.getMessage @failure) "\n")
         (throw (ex-info
-                (format (str "Could not load artifact for template: %s\n"
+                (format (str "Could not locate the artifact for template: %s\n"
                              "\tTried coordinates:\n"
+                             "\t\t{%s %s}\n"
                              "\t\t[%s \"%s\"]\n"
                              "\t\t[%s \"%s\"]%s")
                         template-name
+                        clj-tmp-name (pr-str clj-version)
                         boot-tmp-name tmp-version
                         lein-tmp-name tmp-version
                         (more-debugging))
