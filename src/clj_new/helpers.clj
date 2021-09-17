@@ -282,7 +282,6 @@
     (println (str "  clojure -X" (first match) (or (second match)
                                                    " clj-new/create")
                   " :template template-name :name project-name options\n")))
-  (println "Any additional arguments are passed directly to the template.")
   (println "\nThe template-name may be:")
   (println "* app - create a new application based on deps.edn")
   (println "* lib - create a new library based on deps.edn")
@@ -323,13 +322,22 @@
   [{:keys [env force help output query snapshot verbose version ; options
            args edn-args ; sequence of arguments to pass to the template
            name template] ; project name and template name
-    :or {verbose 0}}]
+    :or {verbose 0}
+    :as opts}]
   (when (and args edn-args) (println "Ignoring :args -- :edn-args takes precedence"))
-  (let [args     (or edn-args ; EDN args override string args
+  (let [unknown  (dissoc opts
+                         :env :force :help :output :query :snapshot :verbose :version
+                         :args :edn-args
+                         :name :template)
+        args     (or edn-args ; EDN args override string args
                      (some->> args (mapv str))) ; ensure all are strings
         name     (some-> name str) ; ensure a string
         output   (some-> output str) ; ensure a string
         template (some-> template str)] ; ensure a string
+
+    (when (seq unknown)
+      (println "Ignoring the following unknown (misspelled?) options:")
+      (run! #(println "*" % (pr-str (get unknown %))) (sort (keys unknown))))
 
     (cond (or help (not (and (seq name) (seq template))))
           (create-help)
