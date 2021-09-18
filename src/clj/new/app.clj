@@ -14,6 +14,7 @@
              "based on the 'app' template.")
     (->files data
              ["deps.edn" (render "deps.edn" data)]
+             ["build.clj" (render "build.clj" data)]
              ["README.md" (render "README.md" data)]
              ["doc/intro.md" (render "intro.md" data)]
              [".gitignore" (render "gitignore" data)]

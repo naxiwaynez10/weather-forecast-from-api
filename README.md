@@ -127,7 +127,7 @@ If you plan on publishing your library to [clojars.org](https://clojars.org) you
 should have a group ID that follows the [Clojars Verified Group Names policy](https://github.com/clojars/clojars-web/wiki/Verified-Group-Names).
 If you use `myname/mylib` as your project name, `clj-new` will generate a `pom.xml` file
 with a group ID of `net.clojars.myname` and assume the library source will live at
-`https://github.com/myname/mylib` (so that `clojure -X:depstar` and `clojure -X:deps-deploy`
+`https://github.com/myname/mylib` (so that `clojure -X:jar` and `clojure -X:deps-deploy`
 will "do the right thing" by default). The main namespace will be `myname.mylib`,
 in `src/myname/mylib.clj`. See [The Generated `pom.xml` File](#the-generated-pomxml-file)
 below for more details about group and artifact IDs.
@@ -246,14 +246,14 @@ You can, of course, modify the generated `pom.xml` file to have whatever group a
 The generated project is an application. It has a `-main` function in the main project
 namespace, with a `(:gen-class)` class in the `ns` form. In addition to being able to
 run the project directly (with `clojure -M -m myname.myapp`) and run the tests, you can
-also build an uberjar for the project with `clojure -X:uberjar`, which you can then
-run with `java -jar myapp`.
+also build an uberjar for the project with `clojure -T:build ci`, which you can then
+run with `java -jar target/myapp-0.1.0-SNAPSHOT.jar`.
 
-The generated project includes a `pom.xml` file purely for "good hygiene". It will be
-kept in sync with `deps.edn` automatically whenever you run `clojure -X:uberjar` to build
-the application and it will be added to the JAR file, along with a generated `pom.properties`
-file. If you delete `pom.xml`, you will also need to remove `:sync-pom true` from the
-`:exec-args` for `depstar` in the `deps.edn` file.
+The generated project includes a `pom.xml` file purely for "good hygiene". It is used as a template for the generated `pom.xml` created by `clojure -T:build ci` when it builds
+the application and it will be added to the JAR file. If you remove
+that `pom.xml`, `tools.build` will still create a minimal `pom.xml`
+inside `target`, unless you also remove `version` from your `build.clj`
+script.
 
 #### The `lib` Template
 
@@ -314,8 +314,7 @@ Each of the built-in templates produces a project that contains a `pom.xml`
 file, which is used to build the uberjar (`app`) or jar file (`lib` and `template`),
 as well as guide the deployment of the latter two. If you don't plan to deploy the
 library or template, or you just don't want a `pom.xml` lying around for your application,
-you can delete it -- but you will also need to remove `:sync-pom true` from the `:exec-args`
-for `depstar` in the generated `deps.edn` file.
+you can delete it.
 
 The goal is such that if you used an appropriate `myname/myapp` style name for the
 project that you asked `clj-new` to create, then most of the fields in the
@@ -359,12 +358,6 @@ This creates the same project structure as in the earlier `myname/myapp` example
     <tag>v1.2.3</tag>
   </scm>
 ```
-
-Once you have generated the project, running `depstar` to build the JAR file will keep the
-`pom.xml` in sync with the dependencies in your `deps.edn` file, and you can update the
-version (and SCM tag) automatically using `depstar`'s `:version` exec argument. You can also change the
-`groupId` and/or `artifactId` via `depstar`'s `:group-id` and/or `:artifact-id` exec
-arguments respectively.
 
 #### The Generated `LICENSE` File
 
