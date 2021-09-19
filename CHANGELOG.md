@@ -1,9 +1,10 @@
 # Changes
 
 * 1.1.next in progress
-  * Switch `app` template to generate `tools.build`-based project (instead of `depstar`, which has been archived).
+  * Switch `app`, `lib`, and `template` templates to generate `tools.build`-based project (instead of `depstar`, which has been archived).
   * Fix #80 by improving the failure reporting when a template cannot be located.
   * Fix #79 by warning about options we don't recognize.
+  * Switch project itself to use `tools.build` intead of `depstar`.
   * Update `.gitignore` template files (includes change of LSP database location).
 
 * 1.1.331 -- 2021-08-02
