@@ -297,7 +297,7 @@ See the [Polylith documentation](https://polylith.gitbook.io/) for more details.
 
 The generated project is a very minimal `clj-template`. It has no `-main`
 function and has no tests. You can however build a jar file for deployment
-with `clojure -X:jar`. You will probably need to adjust some of the information
+with `clojure -T:build ci`. You will probably need to adjust some of the information
 inside the generated `pom.xml` file before deploying the jar file.
 
 > Note: when you create a template project called myname/mytemplate, you will get a folder called `mytemplate` and the `pom.xml` file will specify the group/artifact as `net.clojars.myname/clj-template.mytemplate` which is a convention supported by `clj-new`.
