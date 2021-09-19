@@ -38,7 +38,7 @@ Now you can create a basic application:
 Run the tests:
 
 ```bash
-    clojure -X:test
+    clojure -T:build test
 ```
 
 or you can create a basic library:
@@ -51,7 +51,7 @@ or you can create a basic library:
 Run the tests:
 
 ```bash
-    clojure -X:test
+    clojure -T:build test
 ```
 
 If you think you are going to be creating more libraries than applications, you could specify `:template "lib"` in the `:exec-args` hash map, to specify the default. Or you could provide different aliases, such as:
@@ -127,7 +127,7 @@ If you plan on publishing your library to [clojars.org](https://clojars.org) you
 should have a group ID that follows the [Clojars Verified Group Names policy](https://github.com/clojars/clojars-web/wiki/Verified-Group-Names).
 If you use `myname/mylib` as your project name, `clj-new` will generate a `pom.xml` file
 with a group ID of `net.clojars.myname` and assume the library source will live at
-`https://github.com/myname/mylib` (so that `clojure -X:jar` and `clojure -X:deps-deploy`
+`https://github.com/myname/mylib` (so that `clojure -T:build ci` and `clojure -T:build deploy`
 will "do the right thing" by default). The main namespace will be `myname.mylib`,
 in `src/myname/mylib.clj`. See [The Generated `pom.xml` File](#the-generated-pomxml-file)
 below for more details about group and artifact IDs.
@@ -259,23 +259,22 @@ script.
 
 The generated project is a library. It has no `-main` function. In addition to
 being able to run the tests, you can also build a jar file for deployment
-with `clojure -X:jar`. You will probably need to adjust some of the information
+with `clojure -T:build ci`. You will probably need to adjust some of the information
 inside the generated `pom.xml` file before deploying the jar file.
 
 The generated project includes a `pom.xml` file on the assumption that you will be deploying
 the library to Clojars or a similar repository. It will be kept in sync with `deps.edn`
-automatically whenever you run `clojure -X:jar` to build the library and it will be added
-to the JAR file, along with a generated `pom.properties` file. If you do not intend to
-deploy the library and you want to delete the `pom.xml` file, you will also need to
-remove `:sync-pom true` from the `:exec-args` for `depstar` in the `deps.edn` file.
+automatically whenever you run `clojure -T:build ci` to build the library and it will be added
+to the JAR file. If you do not intend to
+deploy the library, you can delete the `pom.xml` file.
 
 If you are going to deploy the library, you'll probably want to review and adjust some
 of the fields in the `pom.xml` (developer information, group/artifact, version, SCM,
 licensing etc) -- although the defaults should mostly be suitable out of the box.
 
 Once you've updated the `pom.xml` file, you can install it locally with
-`clojure -X:install` or deploy it to Clojars with `clojure -X:deploy`. For
-that you need these environment variables set:
+`clojure -T:build deploy :installer :local` or deploy it to Clojars with
+`clojure -T:build deploy`. For that you need these environment variables set:
 
 * `CLOJARS_USERNAME` -- your Clojars username
 * `CLOJARS_PASSWORD` -- your Clojars password
