@@ -43,38 +43,35 @@ To develop against this workspace, start a REPL in your favorite way, using the 
 
 Build a deployable artifact for the {{name}} command-line application project:
 
-    $ ( cd projects/{{name}} && clojure -X:uberjar )
+    $ ( cd projects/{{name}} && clojure -T:build uber )
 
 Run that uberjar:
 
-    $ java -jar projects/{{name}}/{{name}}.jar
+    $ java -jar projects/{{name}}/target/{{name}}-{{version}}.jar
     Hello, World!
-    $ java -jar projects/{{name}}/{{name}}.jar Lisa
+    $ java -jar projects/{{name}}/target/{{name}}-{{version}}.jar Lisa
     Hello, Lisa!
 
 Build a deployable library artifact for the {{name}}-lib project:
 
-    $ ( cd projects/{{name}}-lib && clojure -X:jar )
+    $ ( cd projects/{{name}}-lib && clojure -T:build jar )
 
-This will update the generated `pom.xml` file to keep the dependencies synchronized with
-that project's `deps.edn` file. You can update the version (and SCM tag) information in the `pom.xml` using the
-`:version` argument:
-
-    $ ( cd projects/{{name}}-lib && clojure -X:jar :version '"1.2.3"' )
+This will produce a generated `pom.xml` file in the project's `target` folder and
+synchronize the dependencies with that project's `deps.edn` file.
 
 It will have the coordinates `{{group}}/{{artifact}}` (and a version of `"{{version}}"` initially).
 
 You can install that JAR file locally:
 
-    $ ( cd projects/{{name}}-lib && clojure -X:install )
+    $ ( cd projects/{{name}}-lib && clojure -T:build deploy :installer :local )
 
 You can also deploy that JAR file to Clojars:
 
-    $ ( cd projects/{{name}}-lib && clojure -X:deploy )
+    $ ( cd projects/{{name}}-lib && clojure -T:build deploy )
 
 You can then depend on the library in other projects (adjust the `:mvn/version` as necessary):
 
-    $ clj -Sdeps '{:deps { {{group}}/{{artifact}} {:mvn/version "{{version}}"}}}'
+    $ clj -Sdeps '{:deps { {{group}}/{{artifact}} {:mvn/version "{{version}}"} }}'
     Clojure 1.10.3
     user=> (require '[{{namespace}}.greeter.interface :as greet])
     nil
