@@ -1,6 +1,6 @@
 # Changes
 
-* 1.2.358 -- 2021-09-18
+* 1.2.359 -- 2021-09-18
   * Switch `app`, `lib`, `polylith`, and `template` templates to generate `tools.build`-based project (instead of `depstar`, which has been archived).
   * Fix #80 by improving the failure reporting when a template cannot be located.
   * Fix #79 by warning about options we don't recognize.
