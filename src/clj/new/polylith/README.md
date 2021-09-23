@@ -63,7 +63,7 @@ It will have the coordinates `{{group}}/{{artifact}}` (and a version of `"{{vers
 
 You can install that JAR file locally:
 
-    $ ( cd projects/{{name}}-lib && clojure -T:build deploy :installer :local )
+    $ ( cd projects/{{name}}-lib && clojure -T:build install )
 
 You can also deploy that JAR file to Clojars:
 

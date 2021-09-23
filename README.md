@@ -292,7 +292,7 @@ of the fields in the `pom.xml` (developer information, group/artifact, version, 
 licensing etc) -- although the defaults should mostly be suitable out of the box.
 
 Once you've updated the `pom.xml` file, you can install it locally with
-`clojure -T:build deploy :installer :local` or deploy it to Clojars with
+`clojure -T:build install` or deploy it to Clojars with
 `clojure -T:build deploy`. For that you need these environment variables set:
 
 * `CLOJARS_USERNAME` -- your Clojars username
