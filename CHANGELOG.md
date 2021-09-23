@@ -1,6 +1,6 @@
 # Changes
 
-* 1.2.next in progress
+* 1.2.362 -- 2021-09-22
   * Update `build-clj` to v0.4.0 (which adds `install` task).
 
 * 1.2.359 -- 2021-09-18

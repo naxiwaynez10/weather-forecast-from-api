@@ -10,7 +10,7 @@
             [org.corfield.build :as bb]))
 
 (def lib 'com.github.seancorfield/clj-new)
-(def version (format "1.1.%s" (b/git-count-revs nil)))
+(def version (format "1.2.%s" (b/git-count-revs nil)))
 
 (defn ci "Run the CI pipeline of tests (and build the JAR)." [opts]
   (-> opts
