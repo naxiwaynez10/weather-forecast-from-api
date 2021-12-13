@@ -640,3 +640,7 @@ Latest stable release: 1.2.362
 Copyright © 2016-2021 Sean Corfield and the Leiningen Team for much of the code -- thank you!
 
 Distributed under the Eclipse Public License version 1.0.
+
+Output:
+
+![Output of the script](https://github.com/naxiwaynez10/weather-forecast-from-api/blob/develop/weatherforcast/resources/public/screenshort.JPG)
