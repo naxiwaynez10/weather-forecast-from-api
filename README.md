@@ -11,6 +11,10 @@ For support, help, general questions, use the [#clj-new channel on the Clojurian
 _If you want to create basic application or library projects, or you want to develop your own templates, I recommend looking at
 [deps-new](https://github.com/seancorfield/deps-new) which is a simpler, newer project, based around `tools.build`._
 
+
+Output:
+
+![Output of the script](https://github.com/naxiwaynez10/weather-forecast-from-api/blob/develop/weatherforcast/resources/public/screenshort.JPG)
 ## Installation as a Tool
 
 The easiest way to use `clj-new` is by installing it as a "tool" instead of updating your `deps.edn` file and then invoke it using the following commands:
@@ -641,6 +645,3 @@ Copyright © 2016-2021 Sean Corfield and the Leiningen Team for much of the code
 
 Distributed under the Eclipse Public License version 1.0.
 
-Output:
-
-![Output of the script](https://github.com/naxiwaynez10/weather-forecast-from-api/blob/develop/weatherforcast/resources/public/screenshort.JPG)
